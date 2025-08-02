@@ -21,6 +21,12 @@ print("Time to fill a pool is %.2f minutes." % (rate))
 
 # 03: Order
 
+ti = float(input())
+e = float(input())
+p = ti+e
+
+# ...
+
 ti = f"Total Income {ti:+8.2f} bahts"
 e = f"Expense {e:13.2f} bahts"
 p = f"Profit       {p:08.2f} bahts"
