@@ -1,0 +1,297 @@
+# Midterm Practice Problem
+
+# 01: Is x an integer?
+
+import math
+x = float(input())
+if (math.floor(x) == math.ceil(x)):
+    print(f"{math.floor(x)} is an integer.")
+else:
+    print(f"{x} is not an integer.")
+    
+# 02: Point in Square
+
+print("Upper left corner coordinate:")
+x = float(input("  << x axis: "))
+y = float(input("  << y axis: "))
+dx = float(input("  << Eastern: "))
+dy = float(input("  << Southern: "))
+print("Enter a coordinate:")
+px = float(input("  << x axis: "))
+py = float(input("  << y axis: "))
+
+if (x <= px and px <= x+dx) and (y-dy <= py and py <= y):
+    print(f">>> ({px:.2f}, {py:.2f}) is inside the rectangle.")
+else:
+    print(f">>> ({px:.2f}, {py:.2f}) is not inside the rectangle.")
+    
+# 03: Sawasdee Wun Jun
+
+week = int(input())
+hr = int(input())
+m = int(input())
+# day of the week
+if week == 1:
+    week = "sunday"
+elif week == 2:
+    week = "monday"
+elif week == 3:
+    week = "tuesday"
+elif week == 4:
+    week = "wednesday"
+elif week == 5:
+    week = "thursday"    
+elif week == 6:
+    week = "friday"    
+elif week == 7:
+    week = "saturday"    
+    
+# time
+m = hr*60 + m
+
+if (241 <= m and m <= 720):
+    m = "morning"
+elif (721 <= m and m <= 1080):
+    m = "afternoon"
+elif (1081 <= m and m <= 1320):
+    m = "evening"
+else:
+    m = "night"
+
+print(f"good-{m}-{week}.png")
+
+# 04: Distance
+
+import math
+xa, ya, xb, yb = -1,-1,-1,-1
+while not (xa == 0 and ya == 0 and xb == 0 and yb == 0):
+    print("<<Point a>>")
+    xa = int(input("Enter x coordinate: "))
+    ya = int(input("Enter y coordinate: "))
+    print("<<Point b>>")
+    xb = int(input("Enter x coordinate: "))
+    yb = int(input("Enter y coordinate: "))
+    
+    # compute
+    if (xa == 0 and ya == 0 and xb == 0 and yb == 0):
+        print("Goodbye")
+    else:
+        ## compute direction
+        if (xb == xa and yb > ya):
+            direction = "north"
+        elif (xb > xa and yb > ya):
+            direction = "north-east"
+        elif (xb > xa and yb == ya):
+            direction = "east"
+        elif (xb > xa and yb < ya):
+            direction = "south-east"
+        elif (xb == xa and yb < ya):
+            direction = "south"
+        elif (xb < xa and yb < ya):
+            direction = "south-west"
+        elif (xb < xa and yb == ya):
+            direction = "west"
+        elif (xb < xa and yb > ya):
+            direction = "north-west"
+        else:
+            direction = "nowhere"
+        
+        d = math.sqrt((xa-xb)**2 + (ya-yb)**2)
+        hor = abs(xb-xa)
+        ver = abs(yb-ya)
+        
+        print(f"""Distance between ({xa}, {ya}) and ({xb}, {yb}):
+Euclidean distance is {d:.2f}.
+Horizontal distance is {hor}.
+Vertical distance is {ver}.
+We are going {direction}.""")        
+
+# 05: Occursnum = input("Enter a number: ")
+digit = int(input("Enter a digit: "))
+result = -1
+x = 0
+isErrorNum = False
+isErrorDigit= False
+
+if (int(num) < 0):
+    isErrorNum = True
+if (digit < 0 or digit >= 10):
+    isErrorDigit = True
+
+x = num.count(str(digit))
+
+if isErrorNum == True:
+    print("Invalid number.")
+if isErrorDigit == True:
+    print("Invalid digit.")   
+
+if isErrorNum == False and isErrorDigit == False:
+    if x == 1:
+        char = ''
+    else:
+        char = 's'
+    print(f"Digit {digit} occurs {x} time{char}.")
+
+# 06: Right Triangle
+
+a = float(input())
+b = float(input())
+c = float(input())
+
+isRight = False
+
+if (a**2 + b**2 == c**2) or (b**2 + c**2 == a**2) or (c**2 + a**2 == b**2):
+    isRight = True
+print(isRight)
+
+# 07: Day in January
+
+startA = int(input())
+s = int(input())
+
+start = startA%7
+x = s%7
+
+if s > 31 or s <= 0 or startA > 7 or startA <= 0:
+    print("ERROR")
+elif (x == start%7):
+    print("Sunday")
+elif (x == (start+1)%7):
+    print("Monday")
+elif (x == (start+2)%7):
+    print("Tuesday")
+elif (x == (start+3)%7):
+    print("Wednesday")
+elif (x == (start+4)%7):
+    print("Thursday")
+elif (x == (start+5)%7):
+    print("Friday")
+elif (x == (start+6)%7):
+    print("Saturday")
+
+# 08: Day in January 2
+
+day = input()
+s = int(input())
+
+if (day == "Sunday"):
+    trueDay = s + 0
+elif (day == "Monday"):
+    trueDay = s + 1
+elif (day == "Tuesday"):
+    trueDay = s + 2
+elif (day == "Wednesday"):
+    trueDay = s + 3
+elif (day == "Thursday"):
+    trueDay = s + 4
+elif (day == "Friday"):
+    trueDay = s + 5
+elif (day == "Saturday"):
+    trueDay = s + 6
+else:
+    trueDay = "ERROR"
+    
+if (s > 31) or (s<1):
+    trueDay = "ERROR"
+    
+if (trueDay != "ERROR"):       
+    if (trueDay%7 == 1):
+        trueDay = "Sunday"
+    elif (trueDay%7 == 2):
+        trueDay = "Monday"
+    elif (trueDay%7 == 3):
+        trueDay = "Tuesday"
+    elif (trueDay%7 == 4):
+        trueDay = "Wednesday"
+    elif (trueDay%7 == 5):
+        trueDay = "Thursday"
+    elif (trueDay%7 == 6):
+        trueDay = "Friday"
+    elif (trueDay%7 == 0):
+        trueDay = "Saturday"
+
+print(trueDay)
+
+# 09: Find a, b in which a*b=n and (a+b) is the lowest
+
+import math
+
+ab = int(input())
+
+i = 1
+max = 99999
+
+while i <= math.floor(math.sqrt(ab)):
+    if (ab % i == 0):
+        if (max > i + ab/i):
+            max = i + ab/i
+    i = i+1
+print(int(max))
+
+# 10: Sum odd digits
+
+import math
+
+num = input()
+
+x = num.count('1')*1 + num.count('3')*3 + num.count('5')*5 + num.count('7')*7 + num.count('9')*9
+
+if x == 0:
+    print(-1)
+else:
+    print(x)
+
+# 11: Product even digits
+
+import math
+
+num = input()
+
+x = 0**num.count('0') * 2**num.count('2') * 4**num.count('4') * 6**num.count('6') * 8**num.count('8')
+
+if num.count('2') +  num.count('4') +  num.count('6') +  num.count('8') +  num.count('0') == 0:
+    print(-1)
+else:
+    print(x)
+
+# 12: Craps
+
+firstRound = True
+
+result = ''
+memory = 0
+last = 0
+roll = 0
+summ = 0
+
+while True:
+    x = int(input())
+    y = int(input())
+    summ = x+y
+    roll = roll + 1
+    
+    if x < 1 or y < 1 or x > 6 or y > 6:
+        print("ERROR")
+        roll = roll - 1
+        continue
+    
+    if firstRound:
+        firstRound = False
+        if x+y == 7 or x+y == 11:
+            result = 'W'
+            break
+        if x+y == 2 or x+y == 3 or x+y == 12:
+            result = 'L'
+            break
+        else:
+            memory = x+y
+            firstRound = False
+    else:
+        if x+y == memory:
+            result = 'W'
+            break
+        if x+y == 7:
+            result = 'L'
+            break
+        
+print(f"{roll} {summ} {result}")
