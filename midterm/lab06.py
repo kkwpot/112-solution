@@ -129,7 +129,7 @@
 
     x = int(input())
     summ = 0
-    #while True:
+
     while True:  
         while True:
             if x/10 == 0:
