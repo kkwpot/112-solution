@@ -1,4 +1,4 @@
-# Lab 06 Problem
+# Lab 07 Problem
     
     # 01: Triangle Alphabet 1
 
